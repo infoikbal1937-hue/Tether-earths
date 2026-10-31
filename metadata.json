@@ -1,0 +1,6 @@
+{
+  "name": "TetherEarth — Documentales de Vida Silvestre 3D",
+  "description": "Experiencia interactiva 3D de documentales de vida silvestre inmersivos. Explora la bóveda del bosque, encuentros dinámicos de supervivencia e historias salvajes.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

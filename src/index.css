@@ -1,0 +1,175 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --font-display: 'Clash Display', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+
+  html {
+    font-family: var(--font-sans);
+    background-color: #070b08;
+    color: #f3f6f1;
+    scroll-behavior: auto;
+    overflow-x: hidden;
+  }
+
+  body {
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: var(--font-display);
+  }
+}
+
+/* Clean 2-Color Dark Tone Gradient Background (Deep Obsidian Forest #070b08 to Rich Moss Charcoal #152217) */
+.premium-two-color-bg {
+  background: linear-gradient(
+    180deg,
+    #070b08 0%,
+    #152217 50%,
+    #070b08 100%
+  );
+}
+
+/* Glassmorphism Surface matching the dark olive-forest palette */
+.glass-panel {
+  background: linear-gradient(
+    135deg,
+    rgba(26, 38, 27, 0.65) 0%,
+    rgba(11, 17, 12, 0.82) 100%
+  );
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+}
+
+/* Interactive Card Hover Effect (Lift + Luminous Forest Border + Subtle Sheen) */
+.card-hover-fx {
+  position: relative;
+  overflow: hidden;
+  transition:
+    transform 0.42s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.42s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.42s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-hover-fx::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 75%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(181, 214, 156, 0.08),
+    transparent
+  );
+  transform: skewX(-20deg);
+  transition: left 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.card-hover-fx:hover {
+  transform: translateY(-8px);
+  border-color: rgba(181, 214, 156, 0.45);
+  box-shadow:
+    0 28px 65px -12px rgba(0, 0, 0, 0.78),
+    0 0 32px rgba(181, 214, 156, 0.16);
+}
+
+.card-hover-fx:hover::before {
+  left: 140%;
+}
+
+/* Centered Floating Pill Navbar */
+.glass-pill-nav {
+  background: rgba(10, 17, 12, 0.82);
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* Header Nav Link Animated Hover Pill + Underline */
+.nav-hover-link {
+  position: relative;
+  padding: 0.35rem 0.65rem;
+  border-radius: 9999px;
+  transition:
+    color 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+    background-color 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.nav-hover-link:hover {
+  color: #ffffff;
+  background-color: rgba(181, 214, 156, 0.12);
+  transform: translateY(-1px);
+}
+.nav-hover-link::after {
+  content: '';
+  position: absolute;
+  left: 16%;
+  bottom: 2px;
+  width: 68%;
+  height: 1.5px;
+  background-color: #b5d69c;
+  transform: scaleX(0);
+  transform-origin: right center;
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.nav-hover-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: left center;
+}
+
+/* Header Subscribe & Action Button Hover Effect */
+.header-btn-hover {
+  position: relative;
+  overflow: hidden;
+  transition:
+    transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+    background-color 0.28s ease,
+    color 0.28s ease;
+}
+.header-btn-hover:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 10px 26px rgba(181, 214, 156, 0.38);
+}
+
+/* 3D Perspective Helper for GSAP Hero Word Animations */
+.hero-perspective {
+  perspective: 1000px;
+}
+
+/* Hide scrollbar for clean horizontal carousel */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Custom subtle scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #070b08;
+}
+::-webkit-scrollbar-thumb {
+  background: #233626;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #a3c985;
+}
